@@ -9,7 +9,10 @@ namespace Pinguinos
         Wall,
         Hole,
         Warp,
-        SteppbleFloor
+        SteppbleFloor,
+        Rock
     }
+
+    //public static class
 }
 
