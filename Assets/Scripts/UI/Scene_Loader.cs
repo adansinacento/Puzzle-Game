@@ -19,4 +19,10 @@ public class Scene_Loader : MonoBehaviour {
 	{
 		SceneManager.LoadScene (pnivel);
 	}
+	
+	public void Exitgame()
+	{
+		Application.Quit ();
+		print("ME SALI");
+	}
 }

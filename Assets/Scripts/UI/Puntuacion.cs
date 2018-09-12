@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class Puntuacion : MonoBehaviour {
 	
@@ -13,12 +15,13 @@ public class Puntuacion : MonoBehaviour {
 	void Start () 
 	{
 		StartCoroutine("BajarPuntuacion");
+		texto.text=puntuacion.ToString();	
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+		fin();
 	}
 	
 	// Baja la puntuacion cada segundo
@@ -35,5 +38,14 @@ public class Puntuacion : MonoBehaviour {
 		
 		// Se vuelve a ejecutar la corotina
 		StartCoroutine("BajarPuntuacion");
+	}
+	
+	void fin() //funcion de GameOver
+	{
+		if (puntuacion<=0)
+		{
+			SceneManager.LoadScene("GameOver");
+			
+		}
 	}
 }
