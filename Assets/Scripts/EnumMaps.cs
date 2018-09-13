@@ -21,16 +21,16 @@ namespace Pinguinos
             switch (direction)
             {
                 case CharacterMovement.PossibleDirections.Forward:
-                    if (x + 1 == LevelLayout.level1.GetLength(0)) return true;
+                    if (y + 1 == LevelLayout.level1.GetLength(1)) return true;
                     return TitleStopsYou(LevelLayout.level1[x, y]);
                 case CharacterMovement.PossibleDirections.Back:
-                    if (x == 0) return true;
-                    return TitleStopsYou(LevelLayout.level1[x, y]);
-                case CharacterMovement.PossibleDirections.Left:
                     if (y == 0) return true;
                     return TitleStopsYou(LevelLayout.level1[x, y]);
+                case CharacterMovement.PossibleDirections.Left:
+                    if (x == 0) return true;
+                    return TitleStopsYou(LevelLayout.level1[x, y]);
                 case CharacterMovement.PossibleDirections.Right:
-                    if (y + 1 == LevelLayout.level1.GetLength(1)) return true;
+                    if (x + 1 == LevelLayout.level1.GetLength(0)) return true;
                     return TitleStopsYou(LevelLayout.level1[x, y]);
                 default:
                     return true; //Default handler
@@ -42,17 +42,17 @@ namespace Pinguinos
             switch (direction)
             {
                 case CharacterMovement.PossibleDirections.Forward:
-                    if (x + 1 > LevelLayout.level1.GetLength(0)) return false;
-                    return !TitleStopsYouNext(LevelLayout.level1[x + 1, y]);
+                    if (y + 1 == LevelLayout.level1.GetLength(1)) return true;
+                    return !TitleStopsYouNext(LevelLayout.level1[x, y+1]);
                 case CharacterMovement.PossibleDirections.Back:
-                    if (x - 1 < 0) return false;
-                    return !TitleStopsYouNext(LevelLayout.level1[x - 1, y]);
+                    if (y == 0) return true;
+                    return !TitleStopsYouNext(LevelLayout.level1[x, y-1]);
                 case CharacterMovement.PossibleDirections.Left:
-                    if (y - 1 < 0) return false;
-                    return !TitleStopsYouNext(LevelLayout.level1[x, y - 1]);
+                    if (x == 0) return true;
+                    return !TitleStopsYouNext(LevelLayout.level1[x-1, y]);
                 case CharacterMovement.PossibleDirections.Right:
-                    if (y + 1 > LevelLayout.level1.GetLength(1)) return false;
-                    return !TitleStopsYouNext(LevelLayout.level1[x, y + 1]);
+                    if (x + 1 == LevelLayout.level1.GetLength(0)) return true;
+                    return !TitleStopsYouNext(LevelLayout.level1[x+1, y]);
                 default:
                     return false; //Si esta detenido le decimos que no se mueva
             }

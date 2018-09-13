@@ -12,10 +12,10 @@ namespace Pinguinos
         // En teoría cargariamos esto de un .json si tuvieramos el level creator
         public static MapOptions[,] level1 = new MapOptions[,] 
         { 
+            { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.SteppbleFloor, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice },
             { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice },
             { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice },
-            { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice },
-            { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice }
+            { MapOptions.Rock, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.SteppbleFloor, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice }
         };        
     }
 }
