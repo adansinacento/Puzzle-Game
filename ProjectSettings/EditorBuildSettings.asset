@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu_Juego.unity
     guid: 7c999dc768e637545b14c1e32783d9a7
+  - enabled: 1
+    path: Assets/Scenes/Prueba_Personajes.unity
+    guid: 4d0d2d81b7e6caf489324a329c751974
   m_configObjects: {}
