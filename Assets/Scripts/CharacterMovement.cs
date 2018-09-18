@@ -12,7 +12,6 @@ namespace Pinguinos
         private Transform tr;
         private int posX = 0;
         private int posY = 0;
-        private bool FirstCommand = false;
 
         public enum PossibleDirections
         {
@@ -59,14 +58,12 @@ namespace Pinguinos
                 if (Selected == PossibleDirections.Stopped) return;
 
                 if (!MapOptionsUtils.IsNextSpaceAvailable(Selected, posX, posY))
-                {
-                    Debug.Log("Next is not available");
                     return; //Si la opcion indicada no se puede ahi le cortamos
-                }
+
                 DirectionMovement = Selected; //Se asigna la direccion deseada
 
                 do
-                {
+                { //Lo movemos en esa direccion hasta que no se pueda mas
                     switch (DirectionMovement)
                     {
                         case PossibleDirections.Left:
@@ -89,13 +86,13 @@ namespace Pinguinos
                 } while (!MapOptionsUtils.MustStopHere(Selected, posX, posY) && MapOptionsUtils.IsNextSpaceAvailable(Selected, posX, posY));
             }
             else
-            {
+            { //Si el estado no es detenido, lo trasladamos
                 transform.position = Vector3.MoveTowards(transform.position, posGO, Time.deltaTime * speed);
                 if (tr.position == posGO) // Este es el codigo cuando el pinguino llega a un title donde se va a detener
                 {
                     if (LevelLayout.level1[posX, posY] == MapOptions.Warp) //si donde se detuvo es un warp lo teletransportamos
                     {
-
+                        // TO DO: Implementacion del warp
                     }
                     else
                     {
