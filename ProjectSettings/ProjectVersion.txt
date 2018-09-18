@@ -1,5 +1,9 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 m_EditorVersion: 2018.1.5f1
 =======
 m_EditorVersion: 2018.2.0f2
 >>>>>>> UI
+=======
+m_EditorVersion: 2018.1.5f1
+>>>>>>> b62d3e750b29cb818ca48fa8b0230f2e0173300f
