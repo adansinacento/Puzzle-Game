@@ -15,7 +15,7 @@ public class GridGenerator : MonoBehaviour {
 
 		for(int i = 0;i < 100;i++){
 
-			if(xpos == )
+			//if(xpos == )
 
 			if(grid == false){
 				Instantiate(white_block,new Vector3Int(xpos,ypos,0),Quaternion.identity);

@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Level1.unity
-    guid: 7aa176ff3a7c55349804846f4a9e9c10
-  - enabled: 1
     path: Assets/Scenes/Cambiar_Personaje.unity
     guid: 42e7d6bc5a9a8e141ad3805e3f412082
   - enabled: 1
@@ -23,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Creditos.unity
     guid: 345fc8d0276c2424182664b203ed2eb1
+  - enabled: 1
+    path: Assets/Scenes/Nivel_1.unity
+    guid: 36af07bba14a4cd41b11ca5518aae9d6
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 2ee1774d473d0a14abfe895075328716

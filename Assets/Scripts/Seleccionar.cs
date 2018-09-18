@@ -13,14 +13,14 @@ public class Seleccionar : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		if(personaje <= 0 || personaje > 3)
+		if(personaje < 0 || personaje > 2)
 		{
 			personaje = 1;
 		}
 		
-		if(SceneManager.GetActiveScene().name == "Level1")
+		if(SceneManager.GetActiveScene().name == "Nivel_1")
 		{
-			Instantiate(Personajes[personaje], transform.position, Quaternion.identity);
+			Instantiate(Personajes[personaje], new Vector3(0, 0, 0) , Quaternion.identity);
 		}
 	}
 	
@@ -37,6 +37,6 @@ public class Seleccionar : MonoBehaviour {
 	
 	public void CambiarEscena()
 	{
-		SceneManager.LoadScene ("Level1");
+		SceneManager.LoadScene ("Menu_Juego");
 	}
 }
