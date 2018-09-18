@@ -21,17 +21,17 @@ namespace Pinguinos
             switch (direction)
             {
                 case CharacterMovement.PossibleDirections.Forward:
-                    if (y + 1 == LevelLayout.level1.GetLength(1)) return true;
-                    return TitleStopsYou(LevelLayout.level1[x, y]);
+                    if (y + 1 == LevelLayout.ActualLevel.GetLength(1)) return true;
+                    return TitleStopsYou(LevelLayout.ActualLevel[x, y]);
                 case CharacterMovement.PossibleDirections.Back:
                     if (y == 0) return true;
-                    return TitleStopsYou(LevelLayout.level1[x, y]);
+                    return TitleStopsYou(LevelLayout.ActualLevel[x, y]);
                 case CharacterMovement.PossibleDirections.Left:
                     if (x == 0) return true;
-                    return TitleStopsYou(LevelLayout.level1[x, y]);
+                    return TitleStopsYou(LevelLayout.ActualLevel[x, y]);
                 case CharacterMovement.PossibleDirections.Right:
-                    if (x + 1 == LevelLayout.level1.GetLength(0)) return true;
-                    return TitleStopsYou(LevelLayout.level1[x, y]);
+                    if (x + 1 == LevelLayout.ActualLevel.GetLength(0)) return true;
+                    return TitleStopsYou(LevelLayout.ActualLevel[x, y]);
                 default:
                     return true; //Default handler
             }
@@ -42,17 +42,17 @@ namespace Pinguinos
             switch (direction)
             {
                 case CharacterMovement.PossibleDirections.Forward:
-                    if (y + 1 == LevelLayout.level1.GetLength(1)) return true;
-                    return !TitleStopsYouNext(LevelLayout.level1[x, y+1]);
+                    if (y + 1 == LevelLayout.ActualLevel.GetLength(1)) return true;
+                    return !TitleStopsYouNext(LevelLayout.ActualLevel[x, y+1]);
                 case CharacterMovement.PossibleDirections.Back:
                     if (y == 0) return true;
-                    return !TitleStopsYouNext(LevelLayout.level1[x, y-1]);
+                    return !TitleStopsYouNext(LevelLayout.ActualLevel[x, y-1]);
                 case CharacterMovement.PossibleDirections.Left:
                     if (x == 0) return true;
-                    return !TitleStopsYouNext(LevelLayout.level1[x-1, y]);
+                    return !TitleStopsYouNext(LevelLayout.ActualLevel[x-1, y]);
                 case CharacterMovement.PossibleDirections.Right:
-                    if (x + 1 == LevelLayout.level1.GetLength(0)) return true;
-                    return !TitleStopsYouNext(LevelLayout.level1[x+1, y]);
+                    if (x + 1 == LevelLayout.ActualLevel.GetLength(0)) return true;
+                    return !TitleStopsYouNext(LevelLayout.ActualLevel[x+1, y]);
                 default:
                     return false; //Si esta detenido le decimos que no se mueva
             }
@@ -74,9 +74,9 @@ namespace Pinguinos
             Vector2Int v1 = new Vector2Int(-1, -1);
             Vector2Int v2 = new Vector2Int(-1, -1);
 
-            for (int i = 0; i < LevelLayout.level1.GetLength(0); i++)
-                for (int j = 0; j < LevelLayout.level1.GetLength(1); j++)
-                    if (LevelLayout.level1[i, j] == MapOptions.Warp)
+            for (int i = 0; i < LevelLayout.ActualLevel.GetLength(0); i++)
+                for (int j = 0; j < LevelLayout.ActualLevel.GetLength(1); j++)
+                    if (LevelLayout.ActualLevel[i, j] == MapOptions.Warp)
                     {
                         if (v1.x == -1)
                             v1.Set(i, j);

@@ -16,7 +16,9 @@ namespace Pinguinos
             { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice },
             { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice },
             { MapOptions.Rock, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.SteppbleFloor, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice }
-        };        
+        };
+
+        public static MapOptions[,] ActualLevel = level1; 
     }
 }
 
