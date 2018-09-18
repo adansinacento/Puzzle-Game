@@ -13,7 +13,12 @@ public class Seleccionar : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		if(SceneManager.GetActiveScene().name == "Prueba_Personajes")
+		if(personaje <= 0 || personaje > 3)
+		{
+			personaje = 1;
+		}
+		
+		if(SceneManager.GetActiveScene().name == "Level1")
 		{
 			Instantiate(Personajes[personaje], transform.position, Quaternion.identity);
 		}
@@ -32,6 +37,6 @@ public class Seleccionar : MonoBehaviour {
 	
 	public void CambiarEscena()
 	{
-		SceneManager.LoadScene ("Prueba_Personajes");
+		SceneManager.LoadScene ("Level1");
 	}
 }
