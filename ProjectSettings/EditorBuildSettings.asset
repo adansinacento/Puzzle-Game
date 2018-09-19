@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level1.unity
     guid: 7aa176ff3a7c55349804846f4a9e9c10
   - enabled: 1
+    path: Assets/Scenes/Cambiar_Personaje.unity
+    guid: 42e7d6bc5a9a8e141ad3805e3f412082
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 3afa0f4ff96f78f478c66a7cd476f6d7
   - enabled: 1
@@ -26,7 +29,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu_Juego.unity
     guid: 7c999dc768e637545b14c1e32783d9a7
-  - enabled: 1
-    path: Assets/Scenes/Prueba_Personajes.unity
-    guid: 4d0d2d81b7e6caf489324a329c751974
   m_configObjects: {}
