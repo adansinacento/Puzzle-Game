@@ -10,7 +10,8 @@ namespace Pinguinos
         Hole,
         Warp,
         SteppbleFloor,
-        Rock
+	    Rock,
+	    Item
     }
 
     public static class MapOptionsUtils
