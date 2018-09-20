@@ -64,17 +64,17 @@ namespace Pinguinos
 
         public static MapOptions[,] level_Tutorial = new MapOptions[,] 
         { 
-            { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice},
-            { MapOptions.Rock, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.SteppbleFloor},
-            { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice},
-            { MapOptions.Ice, MapOptions.SteppbleFloor, MapOptions.Warp,  MapOptions.Hole, MapOptions.Warp, MapOptions.SteppbleFloor, MapOptions.Ice},
-            { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice},
-            { MapOptions.Ice, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.Ice, MapOptions.Ice},
-            { MapOptions.SteppbleFloor, MapOptions.Ice, MapOptions.Ice,  MapOptions.Ice, MapOptions.Ice, MapOptions.SteppbleFloor, MapOptions.Ice}
+            { MapOptions.Ice,           MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice},
+            { MapOptions.Rock,          MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.SteppbleFloor},
+            { MapOptions.Ice,           MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice},
+            { MapOptions.Ice,           MapOptions.SteppbleFloor,   MapOptions.Warp, MapOptions.Hole,   MapOptions.Warp,    MapOptions.SteppbleFloor, MapOptions.Ice},
+            { MapOptions.Ice,           MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice},
+            { MapOptions.Ice,           MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice},
+            { MapOptions.SteppbleFloor, MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.SteppbleFloor, MapOptions.Ice}
         };
 
 
-        public static MapOptions[,] ActualLevel = level_1; 
+        public static MapOptions[,] ActualLevel = level_Tutorial; 
     }
 }
 
