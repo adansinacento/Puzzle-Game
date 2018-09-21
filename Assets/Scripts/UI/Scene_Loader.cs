@@ -4,15 +4,23 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Scene_Loader : MonoBehaviour {
+	
+	public AudioSource sonido;
 
 	// Use this for initialization
-	void Start () {
-		
+	void Start () 
+	{
+		sonido = gameObject.GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
+	}
+	
+	public void Sonido()
+	{
+		sonido.Play();
 	}
 	
 	public void cargarnivel(string pnivel)
