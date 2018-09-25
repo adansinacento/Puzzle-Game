@@ -12,6 +12,7 @@ namespace Pinguinos
         private GameObject Warp;
         private GameObject Hole;
         private GameObject Win;
+        private GameObject Character;
 
         private float offset = 1;
 
@@ -24,15 +25,18 @@ namespace Pinguinos
             Hole = Resources.Load("Hole") as GameObject;
             Win = Resources.Load("Win") as GameObject;
 
+            Character = Resources.Load("Character") as GameObject;
+
             CargaNivel();
         }
+        
 
-        public void CargaNivel()
+        void CargaNivel()
         {
-            for (int i = 0; i < LevelLayout.ActualLevel.GetLength(0); i++)
-                for (int j = 0; j < LevelLayout.ActualLevel.GetLength(1); j++)
+            for (int i = 0; i < LevelLayout.CurrentLevel.Nivel.GetLength(0); i++)
+                for (int j = 0; j < LevelLayout.CurrentLevel.Nivel.GetLength(1); j++)
                 {
-                    switch (LevelLayout.ActualLevel[i, j])
+                    switch (LevelLayout.CurrentLevel.Nivel[i, j])
                     {
                         case MapOptions.Ice:
                             Instantiate(Ice, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
@@ -54,6 +58,8 @@ namespace Pinguinos
                             break;
                     }
                 }
+            Vector2Int CharPos = LevelLayout.CurrentLevel.PosicionInicialPersonaje;
+            Instantiate(Character, new Vector3(CharPos.x * offset, 0, CharPos.y * offset), Quaternion.identity);
         }
     }
 }

@@ -31,6 +31,8 @@ namespace Pinguinos
             posGO = transform.position;
             tr = transform;
             DirectionMovement = PossibleDirections.Stopped;
+            posX = LevelLayout.CurrentLevel.PosicionInicialPersonaje.x;
+            posY = LevelLayout.CurrentLevel.PosicionInicialPersonaje.y;
         }
 
         void Update()
@@ -91,7 +93,7 @@ namespace Pinguinos
                 if (tr.position == posGO) // Este es el codigo cuando el pinguino llega a un title donde se va a detener
                 {
 
-                    switch (LevelLayout.ActualLevel[posX, posY])
+                    switch (LevelLayout.CurrentLevel.Nivel[posX, posY])
                     {
                         case MapOptions.Warp:
                             // TO DO: Implementacion del warp
