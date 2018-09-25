@@ -90,13 +90,18 @@ namespace Pinguinos
                 transform.position = Vector3.MoveTowards(transform.position, posGO, Time.deltaTime * speed);
                 if (tr.position == posGO) // Este es el codigo cuando el pinguino llega a un title donde se va a detener
                 {
-                    if (LevelLayout.ActualLevel[posX, posY] == MapOptions.Warp) //si donde se detuvo es un warp lo teletransportamos
+
+                    switch (LevelLayout.ActualLevel[posX, posY])
                     {
-                        // TO DO: Implementacion del warp
-                    }
-                    else
-                    {
-                        DirectionMovement = PossibleDirections.Stopped; //si no ahi lo paramos
+                        case MapOptions.Warp:
+                            // TO DO: Implementacion del warp
+                            break;
+                        case MapOptions.Hole:
+                            // TO DO: Implementacion del hoyo
+                            break;
+                        default:
+                            DirectionMovement = PossibleDirections.Stopped; //si no ahi lo paramos
+                            break;
                     }
                 } 
             }

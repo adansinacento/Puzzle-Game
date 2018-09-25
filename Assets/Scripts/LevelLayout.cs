@@ -62,7 +62,7 @@ namespace Pinguinos
         
         };
 
-        public static MapOptions[,] level_Tutorial = new MapOptions[,] 
+        public static MapOptions[,] Tutorial = new MapOptions[,] 
         { 
             { MapOptions.Ice,           MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice},
             { MapOptions.Rock,          MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.SteppbleFloor},
@@ -74,7 +74,7 @@ namespace Pinguinos
         };
 
 
-        public static MapOptions[,] ActualLevel = level_Tutorial; 
+        public static MapOptions[,] ActualLevel = Tutorial; 
     }
 }
 

@@ -11,7 +11,8 @@ namespace Pinguinos
         Warp,
         SteppbleFloor,
 	    Rock,
-	    Item
+	    Item,
+        Win
     }
 
     public static class MapOptionsUtils

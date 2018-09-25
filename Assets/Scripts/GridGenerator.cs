@@ -2,30 +2,60 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridGenerator : MonoBehaviour {
+namespace Pinguinos
+{
+    public class GridGenerator : MonoBehaviour
+    {
+        private GameObject Ice;
+        private GameObject SteppableFloor;
+        private GameObject Rock;
+        private GameObject Warp;
+        private GameObject Hole;
+        private GameObject Win;
 
-	public GameObject black_block;
-	public GameObject white_block;
-	public Vector3 startingPosition = new Vector3Int(-355,277,0);
-	public int xpos,ypos;
-	public bool grid = false;
-	
-	
-	void Start(){
+        private float offset = 1;
 
-		for(int i = 0;i < 100;i++){
+        void Start()
+        {
+            Ice = Resources.Load("Ice") as GameObject;
+            SteppableFloor = Resources.Load("SteppableFloor") as GameObject;
+            Rock = Resources.Load("Rock") as GameObject;
+            Warp = Resources.Load("Warp") as GameObject;
+            Hole = Resources.Load("Hole") as GameObject;
+            Win = Resources.Load("Win") as GameObject;
 
-			if(xpos == 0)
+            CargaNivel();
+        }
 
-			if(grid == false){
-				Instantiate(white_block,new Vector3Int(xpos,ypos,0),Quaternion.identity);
-
-				grid = true;
-			} else if(grid == true){
-				Instantiate(black_block,startingPosition,Quaternion.identity);
-
-				grid = false;
-			}
-		}
-	}
+        public void CargaNivel()
+        {
+            for (int i = 0; i < LevelLayout.ActualLevel.GetLength(0); i++)
+                for (int j = 0; j < LevelLayout.ActualLevel.GetLength(1); j++)
+                {
+                    switch (LevelLayout.ActualLevel[i, j])
+                    {
+                        case MapOptions.Ice:
+                            Instantiate(Ice, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
+                            break;
+                        case MapOptions.SteppbleFloor:
+                            Instantiate(SteppableFloor, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
+                            break;
+                        case MapOptions.Rock:
+                            Instantiate(Rock, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
+                            break;
+                        case MapOptions.Warp:
+                            Instantiate(Warp, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
+                            break;
+                        case MapOptions.Hole:
+                            Instantiate(Hole, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
+                            break;
+                        case MapOptions.Win:
+                            Instantiate(Win, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
+                            break;
+                    }
+                }
+        }
+    }
 }
+
+
