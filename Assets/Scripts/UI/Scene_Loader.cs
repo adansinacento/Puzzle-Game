@@ -10,20 +10,11 @@ public class Scene_Loader : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		sonido = gameObject.GetComponent<AudioSource>();
+	//	sonido = gameObject.GetComponent<AudioSource>();
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-	
-	public void Sonido()
-	{
-		sonido.Play();
-	}
-	
-	public void cargarnivel(string pnivel)
+
+	public static void CargarNivel(string pnivel)
 	{
 		SceneManager.LoadScene (pnivel);
 	}
