@@ -6,21 +6,13 @@ namespace Pinguinos
 {
     public class CharacterMovement : MonoBehaviour
     {
-        [SerializeField]
         private float speed;
         private Vector3 posGO;
         private Transform tr;
         private int posX = 0;
         private int posY = 0;
 
-        public enum PossibleDirections
-        {
-            Stopped,
-            Left,
-            Right,
-            Forward,
-            Back
-        }
+        
         private PossibleDirections DirectionMovement;
             
 
@@ -59,8 +51,16 @@ namespace Pinguinos
 
                 if (Selected == PossibleDirections.Stopped) return;
 
-                if (!MapOptionsUtils.IsNextSpaceAvailable(Selected, posX, posY))
+                if (MapOptionsUtils.IsNextSpaceOutOfBouds(Selected, posX, posY))
                     return; //Si la opcion indicada no se puede ahi le cortamos
+                
+                if (MapOptionsUtils.IsNextSpaceARock(Selected, posX, posY))
+                {
+                    //TO DO: manejar que empuje a la roca
+                    Vector2Int nextP = MapOptionsUtils.GetNextPointCoordinates(posX, posY, Selected);
+                    GridGenerator.MueveRoca(nextP.x, nextP.y, Selected);
+                    return;
+                }
 
                 DirectionMovement = Selected; //Se asigna la direccion deseada
 
@@ -92,14 +92,13 @@ namespace Pinguinos
                 transform.position = Vector3.MoveTowards(transform.position, posGO, Time.deltaTime * speed);
                 if (tr.position == posGO) // Este es el codigo cuando el pinguino llega a un title donde se va a detener
                 {
-
                     switch (LevelLayout.CurrentLevel.Nivel[posX, posY])
                     {
                         case MapOptions.Warp:
                             // TO DO: Implementacion del warp
                             break;
                         case MapOptions.Hole:
-                            // TO DO: Implementacion del hoyo
+                            RestartCharacter();
                             break;
                         default:
                             DirectionMovement = PossibleDirections.Stopped; //si no ahi lo paramos
@@ -107,6 +106,15 @@ namespace Pinguinos
                     }
                 } 
             }
+        }
+        void RestartCharacter()
+        {
+            //Asignamos posiciones en la matriz
+            posX = LevelLayout.CurrentLevel.PosicionInicialPersonaje.x;
+            posY = LevelLayout.CurrentLevel.PosicionInicialPersonaje.y;
+            posGO = GridGenerator.CharacterInitialpos; //Reiniciamos la posicion objetivo
+            DirectionMovement = PossibleDirections.Stopped; //Le decimos que se encuentra detenido
+            transform.position = GridGenerator.CharacterInitialpos; //Movemos su pos en el mapa
         }
     }
 }

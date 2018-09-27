@@ -64,13 +64,15 @@ namespace Pinguinos
 
         public static MapOptions[,] Level_Tutorial = new MapOptions[,]
         {
-            { MapOptions.Ice,           MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice},
-            { MapOptions.Ice,          MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.SteppbleFloor},
-            { MapOptions.Ice,           MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice},
-            { MapOptions.Ice,           MapOptions.SteppbleFloor,   MapOptions.Warp, MapOptions.Hole,   MapOptions.Warp,    MapOptions.SteppbleFloor, MapOptions.Ice},
-            { MapOptions.Ice,           MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice},
-            { MapOptions.Ice,           MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice},
-            { MapOptions.SteppbleFloor, MapOptions.Ice,             MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.SteppbleFloor, MapOptions.Ice}
+            { MapOptions.Hole, MapOptions.Hole,          MapOptions.Hole,           MapOptions.Hole, MapOptions.Hole, MapOptions.Hole,   MapOptions.Hole,    MapOptions.Hole,          MapOptions.Hole,          MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,           MapOptions.Win,            MapOptions.Ice,  MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,           MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.SteppbleFloor, MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,           MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.Ice,  MapOptions.Warp, MapOptions.Hole,   MapOptions.Warp,    MapOptions.SteppbleFloor, MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,           MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,           MapOptions.SteppbleFloor,  MapOptions.Ice,  MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.SteppbleFloor, MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,           MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,  MapOptions.Ice,    MapOptions.Ice,     MapOptions.Ice,           MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Hole,          MapOptions.Hole,           MapOptions.Hole, MapOptions.Hole, MapOptions.Hole,   MapOptions.Hole,    MapOptions.Hole,          MapOptions.Hole,          MapOptions.Hole}
         };
         
 
@@ -84,8 +86,8 @@ namespace Pinguinos
 
         public static ArmadoNivel Tutorial = new ArmadoNivel() {
             Nivel = Level_Tutorial,
-            PosicionInicialPersonaje = new Vector2Int(6, 6),
-            PosicionRocas = new Vector2Int[] {new Vector2Int(1, 0)},
+            PosicionInicialPersonaje = new Vector2Int(7, 8),
+            PosicionRocas = new Vector2Int[] {new Vector2Int(2, 3)},
             PosicionItems = new Vector2Int[] {}
         };
 

@@ -13,11 +13,15 @@ namespace Pinguinos
         private GameObject Hole;
         private GameObject Win;
         private GameObject Character;
+        private static List<Rock> Rocks = new List<Rock>();
 
         private float offset = 1;
 
+        public static Vector3 CharacterInitialpos;
+
         void Start()
         {
+            // Cargamos Prefabs perrones
             Ice = Resources.Load("Ice") as GameObject;
             SteppableFloor = Resources.Load("SteppableFloor") as GameObject;
             Rock = Resources.Load("Rock") as GameObject;
@@ -25,14 +29,30 @@ namespace Pinguinos
             Hole = Resources.Load("Hole") as GameObject;
             Win = Resources.Load("Win") as GameObject;
 
+            //El prefab del personaje
             Character = Resources.Load("Character") as GameObject;
 
+            //Esta funcion instancia todos los prefabs correspondientes
             CargaNivel();
         }
-        
+
+        public static void MueveRoca(int x, int y, PossibleDirections dir)
+        {
+            for (int i = 0; i < Rocks.Count; i++)
+            {
+                if (Rocks[i].posX == x && Rocks[i].posY == y)
+                {
+                    Debug.Log("Se ha encontrado una roca");
+                    LevelLayout.CurrentLevel.PosicionRocas[i] = Rocks[i].Move(dir);
+                    return;
+                }
+            }
+        }
+
 
         void CargaNivel()
         {
+            //Estos for() instancian las cosas necesarias del grid
             for (int i = 0; i < LevelLayout.CurrentLevel.Nivel.GetLength(0); i++)
                 for (int j = 0; j < LevelLayout.CurrentLevel.Nivel.GetLength(1); j++)
                 {
@@ -58,8 +78,20 @@ namespace Pinguinos
                             break;
                     }
                 }
+
+            // Cargamos la pos del personaje y Asignamos el valor al Vector3 (que sirve de referencia para otros scripts)
             Vector2Int CharPos = LevelLayout.CurrentLevel.PosicionInicialPersonaje;
-            Instantiate(Character, new Vector3(CharPos.x * offset, 0, CharPos.y * offset), Quaternion.identity);
+            CharacterInitialpos = new Vector3(CharPos.x * offset, 1, CharPos.y * offset);
+            Instantiate(Character, CharacterInitialpos, Quaternion.identity);
+
+            //Instanciamos todas las rocas
+            for (int i = 0; i < LevelLayout.CurrentLevel.PosicionRocas.Length; i++)
+            {
+                Vector3 RockPos = new Vector3(LevelLayout.CurrentLevel.PosicionRocas[i].x, 1, LevelLayout.CurrentLevel.PosicionRocas[i].y);
+                GameObject go = Instantiate(Rock, RockPos, Quaternion.identity);
+                Rocks.Add(go.GetComponent<Rock>());
+                Rocks[i].Init(LevelLayout.CurrentLevel.PosicionRocas[i]);
+            }
         }
     }
 }

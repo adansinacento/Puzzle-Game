@@ -53,7 +53,7 @@ namespace Pinguinos{
 		{
 			if (puntuacion<=0)
 			{
-				SceneManager.LoadScene("GameOver");
+				//SceneManager.LoadScene("GameOver");
 				
 			}
 		}

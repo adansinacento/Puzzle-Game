@@ -4,34 +4,41 @@ using UnityEngine;
 
 namespace Pinguinos
 {
+    public enum PossibleDirections
+    {
+        Stopped,
+        Left,
+        Right,
+        Forward,
+        Back
+    }
+
     public enum MapOptions {
         Ice,
-        Wall,
         Hole,
         Warp,
         SteppbleFloor,
 	    Rock,
-	    Item,
         Win
     }
 
     public static class MapOptionsUtils
     {
 
-        public static bool MustStopHere(CharacterMovement.PossibleDirections direction, int x, int y)
+        public static bool MustStopHere(PossibleDirections direction, int x, int y)
         {
             switch (direction)
             {
-                case CharacterMovement.PossibleDirections.Forward:
+                case PossibleDirections.Forward:
                     if (y + 1 == LevelLayout.CurrentLevel.Nivel.GetLength(1)) return true;
                     return TitleStopsYou(LevelLayout.CurrentLevel.Nivel[x, y]);
-                case CharacterMovement.PossibleDirections.Back:
+                case PossibleDirections.Back:
                     if (y == 0) return true;
                     return TitleStopsYou(LevelLayout.CurrentLevel.Nivel[x, y]);
-                case CharacterMovement.PossibleDirections.Left:
+                case PossibleDirections.Left:
                     if (x == 0) return true;
                     return TitleStopsYou(LevelLayout.CurrentLevel.Nivel[x, y]);
-                case CharacterMovement.PossibleDirections.Right:
+                case PossibleDirections.Right:
                     if (x + 1 == LevelLayout.CurrentLevel.Nivel.GetLength(0)) return true;
                     return TitleStopsYou(LevelLayout.CurrentLevel.Nivel[x, y]);
                 default:
@@ -39,35 +46,74 @@ namespace Pinguinos
             }
         }
 
-        public static bool IsNextSpaceAvailable(CharacterMovement.PossibleDirections direction, int x, int y)
+        public static bool IsNextSpaceAvailable(PossibleDirections direction, int x, int y)
         {
             switch (direction)
             {
-                case CharacterMovement.PossibleDirections.Forward:
+                case PossibleDirections.Forward:
                     if (y + 1 == LevelLayout.CurrentLevel.Nivel.GetLength(1)) return false;
-                    return !TitleStopsYouNext(LevelLayout.CurrentLevel.Nivel[x, y+1]);
-                case CharacterMovement.PossibleDirections.Back:
+                    return !IsThereARock(x, y + 1);
+                case PossibleDirections.Back:
                     if (y == 0) return false;
-                    return !TitleStopsYouNext(LevelLayout.CurrentLevel.Nivel[x, y-1]);
-                case CharacterMovement.PossibleDirections.Left:
+                    return !IsThereARock(x, y-1);
+                case PossibleDirections.Left:
                     if (x == 0) return false;
-                    return !TitleStopsYouNext(LevelLayout.CurrentLevel.Nivel[x-1, y]);
-                case CharacterMovement.PossibleDirections.Right:
+                    return !IsThereARock(x-1, y);
+                case PossibleDirections.Right:
                     if (x + 1 == LevelLayout.CurrentLevel.Nivel.GetLength(0)) return false;
-                    return !TitleStopsYouNext(LevelLayout.CurrentLevel.Nivel[x+1, y]);
+                    return !IsThereARock(x+1, y);
                 default:
                     return false; //Si esta detenido le decimos que no se mueva
             }
         }
 
-        private static bool TitleStopsYouNext(MapOptions title)
+        public static bool IsNextSpaceARock(PossibleDirections direction, int x, int y)
         {
-            return title == MapOptions.Wall || title == MapOptions.Rock;
+            switch (direction)
+            {
+                case PossibleDirections.Forward:
+                    return IsThereARock(x, y + 1);
+                case PossibleDirections.Back:
+                    return IsThereARock(x, y - 1);
+                case PossibleDirections.Left:
+                    return IsThereARock(x - 1, y);
+                case PossibleDirections.Right:
+                    return IsThereARock(x + 1, y);
+                default:
+                    return false; //Si esta detenido le decimos que no se mueva
+            }
+        }
+
+        public static bool IsNextSpaceOutOfBouds(PossibleDirections direction, int x, int y)
+        {
+            switch (direction)
+            {
+                case PossibleDirections.Forward:
+                    return y + 1 == LevelLayout.CurrentLevel.Nivel.GetLength(1);
+                case PossibleDirections.Back:
+                    return y == 0;
+                case PossibleDirections.Left:
+                    return x == 0;
+                case PossibleDirections.Right:
+                    return x + 1 == LevelLayout.CurrentLevel.Nivel.GetLength(0);
+                default:
+                    return false; // La neta esto no debería llegar
+            }
+        }
+
+        public static bool IsThereARock(int x, int y)
+        {
+            for (int i = 0; i < LevelLayout.CurrentLevel.PosicionRocas.Length; i++)
+            {
+                if (LevelLayout.CurrentLevel.PosicionRocas[i].x == x && LevelLayout.CurrentLevel.PosicionRocas[i].y == y)
+                    return true;
+            }
+            return false;
         }
 
         private static bool TitleStopsYou(MapOptions title)
         {
-            return title == MapOptions.SteppbleFloor || title == MapOptions.Warp;
+            return title == MapOptions.SteppbleFloor || title == MapOptions.Warp || title == MapOptions.Hole || title == MapOptions.Win;
         }
 
         public static Vector2Int GetOtherWarpCoordinates(int x, int y)
@@ -87,6 +133,28 @@ namespace Pinguinos
                     }
 
             return vInput == v1 ? v2 : v1;
+        }
+
+        public static Vector2Int GetNextPointCoordinates(int x, int y, PossibleDirections direction)
+        {
+            switch (direction)
+            {
+                case PossibleDirections.Forward:
+                    y++;
+                    break;
+                case PossibleDirections.Back:
+                    y--;
+                    break;
+                case PossibleDirections.Left:
+                    x--;
+                    break;
+                case PossibleDirections.Right:
+                    x++;
+                    break;
+                default:
+                    break;
+            }
+            return new Vector2Int(x, y);
         }
     }
 }
