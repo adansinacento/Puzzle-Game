@@ -54,9 +54,8 @@ namespace Pinguinos
                 if (MapOptionsUtils.IsNextSpaceOutOfBouds(Selected, posX, posY))
                     return; //Si la opcion indicada no se puede ahi le cortamos
                 
-                if (MapOptionsUtils.IsNextSpaceARock(Selected, posX, posY))
+                if (MapOptionsUtils.IsNextSpaceARock(Selected, posX, posY)) //Empuja la roca
                 {
-                    //TO DO: manejar que empuje a la roca
                     Vector2Int nextP = MapOptionsUtils.GetNextPointCoordinates(posX, posY, Selected);
                     GridGenerator.MueveRoca(nextP.x, nextP.y, Selected);
                     return;
@@ -96,6 +95,11 @@ namespace Pinguinos
                     {
                         case MapOptions.Warp:
                             // TO DO: Implementacion del warp
+                            Vector2Int nPoint = MapOptionsUtils.GetOtherWarpCoordinates(posX, posY);
+                            posX = nPoint.x;
+                            posY = nPoint.y;
+                            transform.position = GridGenerator.CoordsToWorldPos(posX, posY, 1);
+                            posGO = transform.position;
                             break;
                         case MapOptions.Hole:
                             RestartCharacter();

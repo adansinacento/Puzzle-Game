@@ -15,7 +15,7 @@ namespace Pinguinos
         private GameObject Character;
         private static List<Rock> Rocks = new List<Rock>();
 
-        private float offset = 1;
+        private static float offset = 1;
 
         public static Vector3 CharacterInitialpos;
 
@@ -48,7 +48,6 @@ namespace Pinguinos
                 }
             }
         }
-
 
         void CargaNivel()
         {
@@ -92,6 +91,11 @@ namespace Pinguinos
                 Rocks.Add(go.GetComponent<Rock>());
                 Rocks[i].Init(LevelLayout.CurrentLevel.PosicionRocas[i]);
             }
+        }
+
+        public static Vector3 CoordsToWorldPos(int x, int z, int y = 0)
+        {
+            return new Vector3(x * offset, y, z * offset);
         }
     }
 }
