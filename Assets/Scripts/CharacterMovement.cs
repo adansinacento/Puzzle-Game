@@ -84,7 +84,9 @@ namespace Pinguinos
                             posY--;
                             break;
                     }
+                    
                 } while (!MapOptionsUtils.MustStopHere(Selected, posX, posY) && MapOptionsUtils.IsNextSpaceAvailable(Selected, posX, posY));
+                
             }
             else
             { //Si el estado no es detenido, lo trasladamos
@@ -100,6 +102,7 @@ namespace Pinguinos
                             posY = nPoint.y;
                             transform.position = GridGenerator.CoordsToWorldPos(posX, posY, 1);
                             posGO = transform.position;
+                            IterateMovement();
                             break;
                         case MapOptions.Hole:
                             RestartCharacter();
@@ -119,6 +122,33 @@ namespace Pinguinos
             posGO = GridGenerator.CharacterInitialpos; //Reiniciamos la posicion objetivo
             DirectionMovement = PossibleDirections.Stopped; //Le decimos que se encuentra detenido
             transform.position = GridGenerator.CharacterInitialpos; //Movemos su pos en el mapa
+        }
+
+        void IterateMovement()
+        {
+            do
+            { //Lo movemos en esa direccion hasta que no se pueda mas
+                switch (DirectionMovement)
+                {
+                    case PossibleDirections.Left:
+                        posGO += Vector3.left;
+                        posX--;
+                        break;
+                    case PossibleDirections.Right:
+                        posGO += Vector3.right;
+                        posX++;
+                        break;
+                    case PossibleDirections.Forward:
+                        posGO += Vector3.forward;
+                        posY++;
+                        break;
+                    case PossibleDirections.Back:
+                        posGO += Vector3.back;
+                        posY--;
+                        break;
+                }
+
+            } while (!MapOptionsUtils.MustStopHere(DirectionMovement, posX, posY) && MapOptionsUtils.IsNextSpaceAvailable(DirectionMovement, posX, posY));
         }
     }
 }
