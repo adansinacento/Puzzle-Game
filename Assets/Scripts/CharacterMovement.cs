@@ -6,11 +6,12 @@ namespace Pinguinos
 {
     public class CharacterMovement : MonoBehaviour
     {
-        private float speed;
+        public float speed;
         private Vector3 posGO;
         private Transform tr;
         private int posX = 0;
         private int posY = 0;
+        public int lives = 1;
 
         
         private PossibleDirections DirectionMovement;
@@ -106,6 +107,9 @@ namespace Pinguinos
                             break;
                         case MapOptions.Hole:
                             RestartCharacter();
+	                        break;
+                        case MapOptions.Win:
+                            Win();
                             break;
                         default:
                             DirectionMovement = PossibleDirections.Stopped; //si no ahi lo paramos
@@ -113,6 +117,14 @@ namespace Pinguinos
                     }
                 } 
             }
+        }
+
+        void Win()
+        {
+            Puntuacion puntuacion = GameObject.FindObjectOfType<Puntuacion>(); //Busco al script de puntuacion
+            puntuacion.panelWin.SetActive(true);
+            puntuacion.enJuego = false;
+            //    LevelLayout.CurrentLevel = LevelLayout.Nivel (cambiar esto por el nivel)
         }
         void RestartCharacter()
         {
