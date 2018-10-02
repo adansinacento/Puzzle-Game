@@ -106,6 +106,9 @@ namespace Pinguinos
                             break;
                         case MapOptions.Hole:
                             RestartCharacter();
+	                        break;
+                        case MapOptions.Win:
+                            Win();
                             break;
                         default:
                             DirectionMovement = PossibleDirections.Stopped; //si no ahi lo paramos
@@ -113,6 +116,14 @@ namespace Pinguinos
                     }
                 } 
             }
+        }
+
+        void Win()
+        {
+            Puntuacion puntuacion = GameObject.FindObjectOfType<Puntuacion>(); //Busco al script de puntuacion
+            puntuacion.panelWin.SetActive(true);
+            puntuacion.enJuego = false;
+            //    LevelLayout.CurrentLevel = LevelLayout.Nivel (cambiar esto por el nivel)
         }
         void RestartCharacter()
         {

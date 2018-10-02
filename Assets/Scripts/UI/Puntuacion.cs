@@ -10,50 +10,51 @@ namespace Pinguinos{
 		
 		public int puntuacion;
 		public ItemBehaviour ib;
-		
+		public GameObject panelWin;
+        public GameObject panelGameover;
 		public Text texto;
-	
+        public bool enJuego;
 		// Use this for initialization
 		void Start () 
 		{
-			StartCoroutine("BajarPuntuacion");
-			texto.text=puntuacion.ToString();	
+			texto.text=puntuacion.ToString();
+            enJuego = true; //Inicializa el juego
+            InvokeRepeating("ActualizaPuntuacion", 0, 2.5f);
 		}
 		
 		// Update is called once per frame
-		void Update () 
-		{
-			fin();
+		void Update ()
+        {
+                fin(); //Checa si se ha legado el contador a 0 y muestra gameover
+
+            if (enJuego)
+                BajarPuntuacion();
+
+            
 		}
 		
 		
 		// Baja la puntuacion cada segundo
-		IEnumerator BajarPuntuacion()
+		void BajarPuntuacion()
 		{
-			if(ib.slowScore == true){
-				yield return new WaitForSeconds(2.5f);
-			}else if(ib.slowScore == false){
-				yield return new WaitForSeconds(1.0f);
-			}
-			
-			if(ib.halfDegen == true){
-				puntuacion -= 50;
-			}else if(ib.halfDegen == false){
-				puntuacion -= 100;
-			}
-			
-			// Actualiza el texto
-			texto.text = puntuacion.ToString();
-			
-			// Se vuelve a ejecutar la corotina
-			StartCoroutine("BajarPuntuacion");
-		}
+        
+			puntuacion -= 1;
 		
-		void fin() //funcion de GameOver
+			// Actualiza el texto
+			
+		}
+
+        void ActualizaPuntuacion()
+        {
+            texto.text = puntuacion.ToString();
+
+        }
+
+        void fin() //funcion de GameOver
 		{
 			if (puntuacion<=0)
 			{
-				//SceneManager.LoadScene("GameOver");
+                panelGameover.SetActive(true);
 				
 			}
 		}
