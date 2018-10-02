@@ -6,11 +6,12 @@ namespace Pinguinos
 {
     public class CharacterMovement : MonoBehaviour
     {
-        private float speed;
+        public float speed;
         private Vector3 posGO;
         private Transform tr;
         private int posX = 0;
         private int posY = 0;
+        public int lives = 1;
 
         
         private PossibleDirections DirectionMovement;
