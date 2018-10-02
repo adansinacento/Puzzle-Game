@@ -14,6 +14,8 @@ namespace Pinguinos{
         public GameObject panelGameover;
 		public Text texto;
         public bool enJuego;
+
+        public int scoreMultiplier = 1;
 		// Use this for initialization
 		void Start () 
 		{
@@ -37,12 +39,17 @@ namespace Pinguinos{
 		// Baja la puntuacion cada segundo
 		void BajarPuntuacion()
 		{
-        
-			puntuacion -= 1;
+                
+            puntuacion -= scoreMultiplier;
 		
 			// Actualiza el texto
 			
 		}
+
+        public void ReloadScene()
+        {
+            SceneManager.LoadScene("Level_1");
+        }
 
         void ActualizaPuntuacion()
         {
