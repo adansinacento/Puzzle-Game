@@ -123,7 +123,7 @@ namespace Pinguinos
             Puntuacion puntuacion = GameObject.FindObjectOfType<Puntuacion>(); //Busco al script de puntuacion
             puntuacion.panelWin.SetActive(true);
             puntuacion.enJuego = false;
-            //    LevelLayout.CurrentLevel = LevelLayout.Nivel (cambiar esto por el nivel)
+            LevelLayout.CurrentLevel = LevelLayout.NextLevel;
         }
         void RestartCharacter()
         {
