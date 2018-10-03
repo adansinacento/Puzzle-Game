@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33583535488750404}
   - component: {fileID: 23507402674819040}
   m_Layer: 0
-  m_Name: iglu
+  m_Name: Igloo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

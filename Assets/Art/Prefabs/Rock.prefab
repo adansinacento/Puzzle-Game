@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33667265467754156}
   - component: {fileID: 23325543909853958}
   m_Layer: 0
-  m_Name: Bloque de hielo
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

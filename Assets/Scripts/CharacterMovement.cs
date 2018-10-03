@@ -64,30 +64,8 @@ namespace Pinguinos
 
                 DirectionMovement = Selected; //Se asigna la direccion deseada
 
-                do
-                { //Lo movemos en esa direccion hasta que no se pueda mas
-                    switch (DirectionMovement)
-                    {
-                        case PossibleDirections.Left:
-                            posGO += Vector3.left;
-                            posX--;
-                            break;
-                        case PossibleDirections.Right:
-                            posGO += Vector3.right;
-                            posX++;
-                            break;
-                        case PossibleDirections.Forward:
-                            posGO += Vector3.forward;
-                            posY++;
-                            break;
-                        case PossibleDirections.Back:
-                            posGO += Vector3.back;
-                            posY--;
-                            break;
-                    }
-                    
-                } while (!MapOptionsUtils.MustStopHere(Selected, posX, posY) && MapOptionsUtils.IsNextSpaceAvailable(Selected, posX, posY));
-                
+                //Iteramos hasta que no se pueda mas
+                IterateMovement();
             }
             else
             { //Si el estado no es detenido, lo trasladamos

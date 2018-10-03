@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 33711976296732072}
   - component: {fileID: 23882954351516568}
   m_Layer: 0
-  m_Name: PisoHielo
+  m_Name: Ice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
