@@ -135,6 +135,16 @@ namespace Pinguinos
             return vInput == v1 ? v2 : v1;
         }
 
+        public static bool IsThereAnItem(int x, int y)
+        {
+            for (int i = 0; i < LevelLayout.CurrentLevel.PosicionItems.Length; i++)
+            {
+                if (LevelLayout.CurrentLevel.PosicionItems[i].x == x && LevelLayout.CurrentLevel.PosicionItems[i].y == y)
+                    return true;
+            }
+            return false;
+        }
+
         public static Vector2Int GetNextPointCoordinates(int x, int y, PossibleDirections direction)
         {
             switch (direction)

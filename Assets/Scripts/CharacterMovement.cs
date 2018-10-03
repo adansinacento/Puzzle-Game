@@ -138,6 +138,12 @@ namespace Pinguinos
                         break;
                 }
 
+                if (MapOptionsUtils.IsThereAnItem(posX, posY))
+                {
+                    //TO DO: Handle item behaviour
+                    
+                }
+
             } while (!MapOptionsUtils.MustStopHere(DirectionMovement, posX, posY) && MapOptionsUtils.IsNextSpaceAvailable(DirectionMovement, posX, posY));
         }
     }
