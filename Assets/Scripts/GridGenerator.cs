@@ -13,6 +13,7 @@ namespace Pinguinos
         private GameObject Hole;
         private GameObject Win;
         private GameObject Character;
+        private GameObject Item;
         private static List<Rock> Rocks = new List<Rock>();
 
         private static float offset = 1;
@@ -28,6 +29,7 @@ namespace Pinguinos
             Warp = Resources.Load("Warp") as GameObject;
             Hole = Resources.Load("Hole") as GameObject;
             Win = Resources.Load("Win") as GameObject;
+            Item = Resources.Load("Item") as GameObject;
 
             //El prefab del personaje
             Character = Resources.Load("Character") as GameObject;
@@ -90,6 +92,14 @@ namespace Pinguinos
                 GameObject go = Instantiate(Rock, RockPos, Quaternion.identity);
                 Rocks.Add(go.GetComponent<Rock>());
                 Rocks[i].Init(LevelLayout.CurrentLevel.PosicionRocas[i]);
+            }
+
+            for (int i = 0; i < LevelLayout.CurrentLevel.PosicionItems.Length; i++)
+            {
+                Vector3 RockPos = new Vector3(LevelLayout.CurrentLevel.PosicionItems[i].x, 1, LevelLayout.CurrentLevel.PosicionItems[i].y);
+                GameObject go = Instantiate(Item, RockPos, Quaternion.identity);
+                //Rocks.Add(go.GetComponent<Rock>());
+                //Rocks[i].Init(LevelLayout.CurrentLevel.PosicionRocas[i]);
             }
         }
 
