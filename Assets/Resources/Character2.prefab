@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65034553183606132}
   - component: {fileID: 114219880326304872}
   m_Layer: 0
-  m_Name: Character
+  m_Name: Character2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,3 +183,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 6
   lives: 1
+  item_behaviour: {fileID: 0}
