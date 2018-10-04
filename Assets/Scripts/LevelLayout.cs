@@ -40,6 +40,21 @@ namespace Pinguinos
             { MapOptions.Hole, MapOptions.Hole,          MapOptions.Hole,           MapOptions.Hole, MapOptions.Hole, MapOptions.Hole,   MapOptions.Hole,    MapOptions.Hole,          MapOptions.Hole,           MapOptions.Hole, MapOptions.Hole,          MapOptions.Hole}
         };
 
+        public static MapOptions[,] Level_Nivel_2 = new MapOptions[,]
+        {
+            { MapOptions.Hole, MapOptions.Hole,           MapOptions.Hole,           MapOptions.Hole, MapOptions.Hole,          MapOptions.Hole,            MapOptions.Hole,     MapOptions.Hole,          MapOptions.Hole,           MapOptions.Hole,           MapOptions.Hole,          MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Win,            MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,           MapOptions.Warp,            MapOptions.Hole,     MapOptions.Ice,           MapOptions.SteppbleFloor,  MapOptions.SteppbleFloor,  MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,           MapOptions.SteppbleFloor,   MapOptions.Hole,     MapOptions.Ice,           MapOptions.Ice,            MapOptions.Ice,           MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,           MapOptions.Ice,             MapOptions.Hole,     MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.SteppbleFloor,  MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,           MapOptions.Ice,             MapOptions.Hole,     MapOptions.Ice,           MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,            MapOptions.SteppbleFloor,  MapOptions.Ice,  MapOptions.SteppbleFloor, MapOptions.Ice,             MapOptions.Hole,     MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.Ice,           MapOptions.SteppbleFloor, MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,            MapOptions.SteppbleFloor,  MapOptions.Ice, MapOptions.SteppbleFloor, MapOptions.Ice,             MapOptions.Hole,     MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.Ice,            MapOptions.SteppbleFloor, MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Hole, MapOptions.Ice,           MapOptions.Ice,             MapOptions.Hole,     MapOptions.Hole,          MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.SteppbleFloor,  MapOptions.Ice,            MapOptions.Hole, MapOptions.Ice,           MapOptions.Ice,             MapOptions.Hole,     MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.SteppbleFloor,  MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,           MapOptions.SteppbleFloor,   MapOptions.Hole,     MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.SteppbleFloor,  MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,  MapOptions.SteppbleFloor, MapOptions.SteppbleFloor,   MapOptions.Warp,     MapOptions.SteppbleFloor, MapOptions.Hole,           MapOptions.Ice,            MapOptions.SteppbleFloor, MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Hole,           MapOptions.Hole,           MapOptions.Hole, MapOptions.Hole,          MapOptions.Hole,            MapOptions.Hole,     MapOptions.Hole,          MapOptions.Hole,           MapOptions.Hole,           MapOptions.Hole,          MapOptions.Hole}
+        };
 
         public class ArmadoNivel
         {
@@ -65,7 +80,15 @@ namespace Pinguinos
 
         };
 
-        public static ArmadoNivel CurrentLevel = Tutorial;
+        public static ArmadoNivel Nivel_2 = new ArmadoNivel() {
+
+            Nivel = Level_Nivel_2,
+            PosicionInicialPersonaje = new Vector2Int(10,10),
+            PosicionRocas = new Vector2Int[] {},
+            PosicionItems=new Vector2Int[] {}
+        };
+
+        public static ArmadoNivel CurrentLevel = Nivel_2;
 
         public static ArmadoNivel NextLevel = Nivel_1;
 }
