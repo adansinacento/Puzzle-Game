@@ -18,7 +18,6 @@ namespace Pinguinos
         Hole,
         Warp,
         SteppbleFloor,
-	    Rock,
         Win
     }
 
