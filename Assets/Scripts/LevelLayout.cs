@@ -87,14 +87,8 @@ namespace Pinguinos
             PosicionRocas = new Vector2Int[] {new Vector2Int(2,9),new Vector2Int(5,9),new Vector2Int(6,3)},
             PosicionItems=new Vector2Int[] {}
         };
-
-<<<<<<< HEAD
-        public static ArmadoNivel CurrentLevel = Nivel_1;
-=======
-        public static ArmadoNivel CurrentLevel = Nivel_2;
->>>>>>> 8f834468648885589a5223e23cfb0eea2c1e2f95
-
-        public static ArmadoNivel NextLevel = Nivel_1;
+        
+        public static ArmadoNivel NextLevel = Tutorial;
 }
 }
 

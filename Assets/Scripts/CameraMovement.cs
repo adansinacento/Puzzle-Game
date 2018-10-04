@@ -20,8 +20,22 @@ namespace Pinguinos
         void Update()
         {
             centro = ((P2 - P1) / 2.0f) + P1;
-            transform.position = new Vector3(centro.x, transform.position.y, centro.z);
+            float y = transform.position.y;
+            Vector3 VPP = Camera.main.WorldToViewportPoint(P1);
+            Vector3 VPP2 = Camera.main.WorldToViewportPoint(P2);
+
+            while (!isBet0and1(VPP.x) || !isBet0and1(VPP.y) || !isBet0and1(VPP2.x) || !isBet0and1(VPP2.y))
+            {
+                y += 1;
+            }
+
+            transform.position = new Vector3(centro.x, y, centro.z);
             transform.LookAt(centro);
+        }
+
+        bool isBet0and1(float n)
+        {
+            return n >= 0.0f && n <= 1.0f;
         }
     }
 }
