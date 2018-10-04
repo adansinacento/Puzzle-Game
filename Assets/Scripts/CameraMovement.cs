@@ -27,7 +27,7 @@ namespace Pinguinos
             while (!isBet0and1(VPP.x) || !isBet0and1(VPP.y) || !isBet0and1(VPP2.x) || !isBet0and1(VPP2.y))
             {
                 y += 1;
-            }
+            }//Ups
 
             transform.position = new Vector3(centro.x, y, centro.z);
             transform.LookAt(centro);
