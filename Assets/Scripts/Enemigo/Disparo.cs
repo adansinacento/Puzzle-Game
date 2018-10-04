@@ -6,7 +6,7 @@ public class Disparo : MonoBehaviour {
 	
 	// Pool de la bala
 	List<GameObject> Bala = new List<GameObject>();
-	
+    Transform personaje;
 	GameObject Generar_Bala()
 	{
 		for (int i = 0; i < Bala.Count; i++)
@@ -30,21 +30,24 @@ public class Disparo : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-		StartCoroutine("Trigger");
-	}
+        StartCoroutine("Trigger");
+    }
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
+        gameObject.transform.LookAt(personaje);
 	}
 	
 	IEnumerator Trigger()
 	{
-		yield return new WaitForSeconds(1f);
-		GameObject go = Generar_Bala();
-		go.GetComponent<Rigidbody>().AddForce(transform.forward * -800);
-		go.GetComponent<Rigidbody>().AddForce(transform.up * 800);
+		yield return new WaitForSeconds(2f);
+        if(personaje == null)
+        personaje = GameObject.FindGameObjectWithTag("Player").transform;
+
+        GameObject go = Generar_Bala();
+        go.GetComponent<Rigidbody>().AddForce(transform.forward * 800);
+		go.GetComponent<Rigidbody>().AddForce(transform.up * 150);
 		
 		StartCoroutine("Trigger");
 	}
