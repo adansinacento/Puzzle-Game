@@ -16,12 +16,17 @@ namespace Pinguinos
         private GameObject Item;
         private static List<Rock> Rocks = new List<Rock>();
 
+        Seleccionar Jugador;
+
+        string Player;
+
         private static float offset = 1;
 
         public static Vector3 CharacterInitialpos;
 
         void Start()
         {
+            Player = Jugador.ToString();
             // Cargamos Prefabs perrones
             Ice = Resources.Load("Ice") as GameObject;
             SteppableFloor = Resources.Load("SteppableFloor") as GameObject;
@@ -32,7 +37,7 @@ namespace Pinguinos
             Item = Resources.Load("Item") as GameObject;
 
             //El prefab del personaje
-            Character = Resources.Load("Character") as GameObject;
+            Character = Resources.Load(Player) as GameObject;
 
             //Esta funcion instancia todos los prefabs correspondientes
             CargaNivel();

@@ -18,9 +18,11 @@ public class Seleccionar : MonoBehaviour {
 			personaje = 1;
 		}
 		
-		if(SceneManager.GetActiveScene().name == "Nivel_1")
+		if(SceneManager.GetActiveScene().name == "Livel_1")
 		{
 			Instantiate(Personajes[personaje], new Vector3(0, 0, 0) , Quaternion.identity);
+
+            
 		}
 	}
 	
