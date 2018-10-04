@@ -51,8 +51,8 @@ namespace Pinguinos
             { MapOptions.Hole, MapOptions.Ice,            MapOptions.SteppbleFloor,  MapOptions.Ice, MapOptions.SteppbleFloor, MapOptions.Ice,             MapOptions.Hole,     MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.Ice,            MapOptions.SteppbleFloor, MapOptions.Hole},
             { MapOptions.Hole, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Hole, MapOptions.Ice,           MapOptions.Ice,             MapOptions.Hole,     MapOptions.Hole,          MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,           MapOptions.Hole},
             { MapOptions.Hole, MapOptions.SteppbleFloor,  MapOptions.Ice,            MapOptions.Hole, MapOptions.Ice,           MapOptions.Ice,             MapOptions.Hole,     MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,           MapOptions.Hole},
-            { MapOptions.Hole, MapOptions.SteppbleFloor,  MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,           MapOptions.Ice,   MapOptions.Hole,     MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.SteppbleFloor,  MapOptions.Ice,           MapOptions.Hole},
-            { MapOptions.Hole, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,  MapOptions.SteppbleFloor, MapOptions.SteppbleFloor,   MapOptions.Hole,     MapOptions.Warp, MapOptions.Hole,           MapOptions.Ice,            MapOptions.SteppbleFloor, MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.SteppbleFloor,  MapOptions.Ice,            MapOptions.Ice,  MapOptions.Ice,           MapOptions.SteppbleFloor,   MapOptions.Hole,     MapOptions.SteppbleFloor, MapOptions.Ice,            MapOptions.SteppbleFloor,  MapOptions.Ice,           MapOptions.Hole},
+            { MapOptions.Hole, MapOptions.Ice,            MapOptions.Ice,            MapOptions.Ice,  MapOptions.SteppbleFloor, MapOptions.SteppbleFloor,   MapOptions.Warp,     MapOptions.SteppbleFloor, MapOptions.Hole,           MapOptions.Ice,            MapOptions.SteppbleFloor, MapOptions.Hole},
             { MapOptions.Hole, MapOptions.Hole,           MapOptions.Hole,           MapOptions.Hole, MapOptions.Hole,          MapOptions.Hole,            MapOptions.Hole,     MapOptions.Hole,          MapOptions.Hole,           MapOptions.Hole,           MapOptions.Hole,          MapOptions.Hole}
         };
 
@@ -88,7 +88,7 @@ namespace Pinguinos
             PosicionItems=new Vector2Int[] {}
         };
 
-        public static ArmadoNivel CurrentLevel = Nivel_2;
+        public static ArmadoNivel CurrentLevel = Tutorial;
 
         public static ArmadoNivel NextLevel = Nivel_1;
 }

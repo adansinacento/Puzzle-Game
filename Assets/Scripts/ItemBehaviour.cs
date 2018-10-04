@@ -63,10 +63,12 @@ namespace Pinguinos{
 			StopCoroutine("ActivatePowerup");
 		}
 
-		public IEnumerator ActivatePowerup(bool item){
-			item = true;
+		public IEnumerator ActivatePowerup(bool[] item){
+			int random = 0;
+			Debug.Log("enumerator");
+			item[random] = true;
 			yield return espera;
-			item = false;
+			item[random] = false;
 			Detener();
 		}
 
