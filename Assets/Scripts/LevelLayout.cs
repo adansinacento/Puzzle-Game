@@ -84,7 +84,7 @@ namespace Pinguinos
 
             Nivel = Level_Nivel_2,
             PosicionInicialPersonaje = new Vector2Int(10,10),
-            PosicionRocas = new Vector2Int[] {},
+            PosicionRocas = new Vector2Int[] {new Vector2Int(2,9),new Vector2Int(5,9),new Vector2Int(6,3)},
             PosicionItems=new Vector2Int[] {}
         };
 
