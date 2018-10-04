@@ -13,7 +13,8 @@ namespace Pinguinos
         private int posY = 0;
         public int lives = 1;
 
-        
+        public ItemBehaviour ib; 
+
         private PossibleDirections DirectionMovement;
             
 
@@ -26,6 +27,7 @@ namespace Pinguinos
             DirectionMovement = PossibleDirections.Stopped;
             posX = LevelLayout.CurrentLevel.PosicionInicialPersonaje.x;
             posY = LevelLayout.CurrentLevel.PosicionInicialPersonaje.y;
+            ib = Camera.main.GetComponent<ItemBehaviour>();
         }
 
         void Update()
@@ -89,6 +91,8 @@ namespace Pinguinos
                         case MapOptions.Win:
                             Win();
                             break;
+                        
+
                         default:
                             DirectionMovement = PossibleDirections.Stopped; //si no ahi lo paramos
                             break;
@@ -140,8 +144,7 @@ namespace Pinguinos
 
                 if (MapOptionsUtils.IsThereAnItem(posX, posY))
                 {
-                    //TO DO: Handle item behaviour
-                    
+                    ib.StartCoroutine(ib.ActivatePowerup(ib.items[Random.Range(0,2)]));
                 }
 
             } while (!MapOptionsUtils.MustStopHere(DirectionMovement, posX, posY) && MapOptionsUtils.IsNextSpaceAvailable(DirectionMovement, posX, posY));
