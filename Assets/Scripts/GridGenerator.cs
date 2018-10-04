@@ -65,9 +65,6 @@ namespace Pinguinos
                         case MapOptions.SteppbleFloor:
                             Instantiate(SteppableFloor, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
                             break;
-                        case MapOptions.Rock:
-                            Instantiate(Rock, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
-                            break;
                         case MapOptions.Warp:
                             Instantiate(Warp, new Vector3(i * offset, 0, j * offset), Quaternion.identity, transform);
                             break;
