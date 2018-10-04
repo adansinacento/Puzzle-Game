@@ -12,7 +12,9 @@ namespace Pinguinos
         private int posX = 0;
         private int posY = 0;
         public int lives = 1;
+        Disparo disparo;
 
+        public ItemBehaviour item_behaviour;
         
         private PossibleDirections DirectionMovement;
             
@@ -20,12 +22,14 @@ namespace Pinguinos
         // Use this for initialization
         void Start()
         {
+            item_behaviour = Camera.main.GetComponent<ItemBehaviour>();
             speed = 2;
             posGO = transform.position;
             tr = transform;
             DirectionMovement = PossibleDirections.Stopped;
             posX = LevelLayout.CurrentLevel.PosicionInicialPersonaje.x;
             posY = LevelLayout.CurrentLevel.PosicionInicialPersonaje.y;
+            disparo = GameObject.FindObjectOfType<Disparo>();
         }
 
         void Update()
@@ -36,18 +40,25 @@ namespace Pinguinos
                 if (Input.GetKeyDown(KeyCode.D))
                 {
                     Selected = PossibleDirections.Right;
+                    InicializaDisparo();
                 }
                 else if (Input.GetKeyDown(KeyCode.A))
                 {
                     Selected = PossibleDirections.Left;
+                    InicializaDisparo();
+
                 }
                 else if (Input.GetKeyDown(KeyCode.W))
                 {
                     Selected = PossibleDirections.Forward;
+                    InicializaDisparo();
+
                 }
                 else if (Input.GetKeyDown(KeyCode.S))
                 {
                     Selected = PossibleDirections.Back;
+                    InicializaDisparo();
+
                 }
 
                 if (Selected == PossibleDirections.Stopped) return;
@@ -114,6 +125,13 @@ namespace Pinguinos
             transform.position = GridGenerator.CharacterInitialpos; //Movemos su pos en el mapa
         }
 
+        void InicializaDisparo()
+        {
+            disparo.StopAllCoroutines();
+            disparo.StartCoroutine("Trigger");
+        }
+
+
         void IterateMovement()
         {
             do
@@ -140,8 +158,8 @@ namespace Pinguinos
 
                 if (MapOptionsUtils.IsThereAnItem(posX, posY))
                 {
-                    //TO DO: Handle item behaviour
-                    
+                    Debug.Log("Entro al item");
+                    item_behaviour.StartCoroutine(item_behaviour.ActivatePowerup(item_behaviour.items));
                 }
 
             } while (!MapOptionsUtils.MustStopHere(DirectionMovement, posX, posY) && MapOptionsUtils.IsNextSpaceAvailable(DirectionMovement, posX, posY));
