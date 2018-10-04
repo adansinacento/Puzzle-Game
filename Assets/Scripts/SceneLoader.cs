@@ -22,7 +22,6 @@ public class SceneLoader : MonoBehaviour {
 		EscenaACargar = loadingManager.nextScene;
 		scene = EscenaACargar;
 		StartCoroutine(LoadNewScene());
-
 	}
 
 	// Updates once per frame

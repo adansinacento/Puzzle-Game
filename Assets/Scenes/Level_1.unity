@@ -3180,7 +3180,7 @@ GameObject:
   - component: {fileID: 1112934285}
   - component: {fileID: 1112934283}
   m_Layer: 0
-  m_Name: PIRATADECULIACAN
+  m_Name: PIRATA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

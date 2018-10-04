@@ -30,18 +30,22 @@ public class Disparo : MonoBehaviour {
 	// Use this for initialization
 	void Start () 
 	{
-        StartCoroutine("Trigger");
+        if (personaje == null)
+
+            gameObject.transform.LookAt(personaje);
+
     }
-	
-	// Update is called once per frame
-	void Update () 
+
+    // Update is called once per frame
+    void Update () 
 	{
         gameObject.transform.LookAt(personaje);
+        
 	}
 	
-	IEnumerator Trigger()
+	public IEnumerator Trigger()
 	{
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(4f);
         if(personaje == null)
         personaje = GameObject.FindGameObjectWithTag("Player").transform;
 
@@ -49,6 +53,5 @@ public class Disparo : MonoBehaviour {
         go.GetComponent<Rigidbody>().AddForce(transform.forward * 800);
 		go.GetComponent<Rigidbody>().AddForce(transform.up * 150);
 		
-		StartCoroutine("Trigger");
 	}
 }

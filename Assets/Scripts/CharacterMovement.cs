@@ -12,7 +12,7 @@ namespace Pinguinos
         private int posX = 0;
         private int posY = 0;
         public int lives = 1;
-
+        Disparo disparo;
         
         private PossibleDirections DirectionMovement;
             
@@ -26,6 +26,7 @@ namespace Pinguinos
             DirectionMovement = PossibleDirections.Stopped;
             posX = LevelLayout.CurrentLevel.PosicionInicialPersonaje.x;
             posY = LevelLayout.CurrentLevel.PosicionInicialPersonaje.y;
+            disparo = GameObject.FindObjectOfType<Disparo>();
         }
 
         void Update()
@@ -36,18 +37,25 @@ namespace Pinguinos
                 if (Input.GetKeyDown(KeyCode.D))
                 {
                     Selected = PossibleDirections.Right;
+                    InicializaDisparo();
                 }
                 else if (Input.GetKeyDown(KeyCode.A))
                 {
                     Selected = PossibleDirections.Left;
+                    InicializaDisparo();
+
                 }
                 else if (Input.GetKeyDown(KeyCode.W))
                 {
                     Selected = PossibleDirections.Forward;
+                    InicializaDisparo();
+
                 }
                 else if (Input.GetKeyDown(KeyCode.S))
                 {
                     Selected = PossibleDirections.Back;
+                    InicializaDisparo();
+
                 }
 
                 if (Selected == PossibleDirections.Stopped) return;
@@ -113,6 +121,13 @@ namespace Pinguinos
             DirectionMovement = PossibleDirections.Stopped; //Le decimos que se encuentra detenido
             transform.position = GridGenerator.CharacterInitialpos; //Movemos su pos en el mapa
         }
+
+        void InicializaDisparo()
+        {
+            disparo.StopAllCoroutines();
+            disparo.StartCoroutine("Trigger");
+        }
+
 
         void IterateMovement()
         {
