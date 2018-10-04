@@ -18,7 +18,7 @@ namespace Pinguinos
 
         Seleccionar Jugador;
 
-        string Player;
+       public static string Player;
 
         private static float offset = 1;
 
@@ -26,7 +26,6 @@ namespace Pinguinos
 
         void Start()
         {
-            Player = Jugador.ToString();
             // Cargamos Prefabs perrones
             Ice = Resources.Load("Ice") as GameObject;
             SteppableFloor = Resources.Load("SteppableFloor") as GameObject;
