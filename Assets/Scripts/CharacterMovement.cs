@@ -13,6 +13,8 @@ namespace Pinguinos
         private int posY = 0;
         public int lives = 1;
         Disparo disparo;
+
+        public ItemBehaviour item_behaviour;
         
         private PossibleDirections DirectionMovement;
             
@@ -20,6 +22,7 @@ namespace Pinguinos
         // Use this for initialization
         void Start()
         {
+            item_behaviour = Camera.main.GetComponent<ItemBehaviour>();
             speed = 2;
             posGO = transform.position;
             tr = transform;
@@ -155,8 +158,8 @@ namespace Pinguinos
 
                 if (MapOptionsUtils.IsThereAnItem(posX, posY))
                 {
-                    //TO DO: Handle item behaviour
-                    
+                    Debug.Log("Entro al item");
+                    item_behaviour.StartCoroutine(item_behaviour.ActivatePowerup(item_behaviour.items));
                 }
 
             } while (!MapOptionsUtils.MustStopHere(DirectionMovement, posX, posY) && MapOptionsUtils.IsNextSpaceAvailable(DirectionMovement, posX, posY));

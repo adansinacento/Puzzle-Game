@@ -88,7 +88,7 @@ namespace Pinguinos
             PosicionItems=new Vector2Int[] {}
         };
 
-        public static ArmadoNivel CurrentLevel = Nivel_2;
+        public static ArmadoNivel CurrentLevel = Tutorial;
 
         public static ArmadoNivel NextLevel = Nivel_1;
 }
