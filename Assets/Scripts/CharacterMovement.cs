@@ -23,6 +23,7 @@ namespace Pinguinos
         // Use this for initialization
         void Start()
         {
+            gameObject.tag = "Player";
             item_behaviour = Camera.main.GetComponent<ItemBehaviour>();
             speed = 2;
             posGO = transform.position;
