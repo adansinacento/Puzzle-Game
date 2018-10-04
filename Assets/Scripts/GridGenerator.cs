@@ -35,6 +35,9 @@ namespace Pinguinos
             Win = Resources.Load("Win") as GameObject;
             Item = Resources.Load("Item") as GameObject;
 
+            if (Player == null)
+                Player = "Character";
+
             //El prefab del personaje
             Character = Resources.Load(Player) as GameObject;
 

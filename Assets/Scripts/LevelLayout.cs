@@ -68,7 +68,7 @@ namespace Pinguinos
             Nivel = Level_Tutorial,
             PosicionInicialPersonaje = new Vector2Int(7, 8),
             PosicionRocas = new Vector2Int[] {new Vector2Int(2, 3)},
-            PosicionItems = new Vector2Int[] { new Vector2Int(7,7)}
+            PosicionItems = new Vector2Int[] {}
         };
 
         public static ArmadoNivel Nivel_1 = new ArmadoNivel()

@@ -17,6 +17,7 @@ namespace Pinguinos
         public ItemBehaviour item_behaviour;
         
         private PossibleDirections DirectionMovement;
+        private Quaternion[] rotaciones = new Quaternion[4];
             
 
         // Use this for initialization
@@ -30,6 +31,14 @@ namespace Pinguinos
             posX = LevelLayout.CurrentLevel.PosicionInicialPersonaje.x;
             posY = LevelLayout.CurrentLevel.PosicionInicialPersonaje.y;
             disparo = GameObject.FindObjectOfType<Disparo>();
+
+            rotaciones[0] = transform.rotation;
+            transform.Rotate(Vector3.up, 90);
+            rotaciones[1] = transform.rotation;
+            transform.Rotate(Vector3.up, 90);
+            rotaciones[2] = transform.rotation;
+            transform.Rotate(Vector3.up, 90);
+            rotaciones[3] = transform.rotation;
         }
 
         void Update()
@@ -62,6 +71,22 @@ namespace Pinguinos
                 }
 
                 if (Selected == PossibleDirections.Stopped) return;
+
+                switch (Selected)
+                {
+                    case PossibleDirections.Forward:
+                        transform.rotation = rotaciones[2];
+                        break;
+                    case PossibleDirections.Right:
+                        transform.rotation = rotaciones[3];
+                        break;
+                    case PossibleDirections.Back:
+                        transform.rotation = rotaciones[0];
+                        break;
+                    case PossibleDirections.Left:
+                        transform.rotation = rotaciones[1];
+                        break;
+                }
 
                 if (MapOptionsUtils.IsNextSpaceOutOfBouds(Selected, posX, posY))
                     return; //Si la opcion indicada no se puede ahi le cortamos
