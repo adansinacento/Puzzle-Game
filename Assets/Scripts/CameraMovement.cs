@@ -20,6 +20,7 @@ namespace Pinguinos
         void Update()
         {
             centro = ((P2 - P1) / 2.0f) + P1;
+            transform.position = new Vector3(centro.x, transform.position.y, centro.z);
             transform.LookAt(centro);
         }
     }
