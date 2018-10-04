@@ -15,7 +15,7 @@ namespace Pinguinos{
 		public Text texto;
         public bool enJuego;
 
-        public int scoreMultiplier = 1;
+        public int scoreMultiplier = 2;
 		// Use this for initialization
 		void Start () 
 		{
